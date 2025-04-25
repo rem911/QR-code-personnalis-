@@ -1,62 +1,76 @@
-# FindYourCourt
+#  QR Code Generator - Java Application
 
-**FindYourCourt** est une application web permettant aux passionnés de sport collectif de réserver facilement un terrain selon le lieu, la date et l’horaire souhaités. Le site facilite la mise en relation des joueurs avec les infrastructures disponibles.
+Ce projet Java permet de générer un **QR code personnalisé** à partir d'une URL ou d'une chaîne de caractères. Il repose sur la librairie **ZXing (Zebra Crossing)** pour encoder les données dans un format image `.jpg`.
 
-Ce projet a été **entièrement conçu et développé** en **4 mois** par mon groupe **SummitPartners**, dans le cadre de l’approche par projet en **Développement Web** à l’ISEP.
+##  Fonctionnalités
 
----
-## Liens vers le site web hébergé en ligne
-- http://findyourcourt.lovestoblog.com/accueil2.html
----
+- Génération automatique d’un QR code à partir de n’importe quelle chaîne (texte, URL…)
+- Export du QR code en image au format `.jpg`
+- Résolution personnalisée (2000x2000 px dans l'exemple)
 
-## Fonctionnalités principales
+## Prérequis
 
-- Affichage de la page d’accueil et navigation claire
-- Système d’inscription et de connexion utilisateur
-- Réservation de terrain selon des critères choisis (jour, horaire, terrain)
-- Interface moderne, épurée et responsive
+Avant de compiler ou exécuter ce projet, assurez-vous d’avoir :
 
----
+- **Java JDK 8+**
+- **Maven** (ou autre système de build compatible)
+- **ZXing Core et JavaSE** (ajoutées en dépendances)
 
-## Aperçu du site
+### Dépendances Maven nécessaires :
 
-![Aperçu](Illustration_fyc.png)
+```xml
+<dependencies>
+  <dependency>
+    <groupId>com.google.zxing</groupId>
+    <artifactId>core</artifactId>
+    <version>3.4.1</version>
+  </dependency>
+  <dependency>
+    <groupId>com.google.zxing</groupId>
+    <artifactId>javase</artifactId>
+    <version>3.4.1</version>
+  </dependency>
+  <dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.28</version>
+    <scope>provided</scope>
+  </dependency>
+</dependencies>
+```
 
----
+## Structure des fichiers
 
-## 🛠️ Technologies utilisées
+```
+src/
+└── org.CreateQrCode.seraphin.fr/
+    ├── CreateQrCode.java      # Classe utilitaire de génération de QR code
+    └── GenerateQrCode.java    # Classe principale (main)
+```
 
-- HTML5 / CSS3
-- PHP
-- MySQL
-- JavaScript 
+## ⚙️ Utilisation
 
----
+```bash
+# Compiler le projet (si Maven)
+mvn compile
 
-## Base de données
+# Exécuter le programme principal
+mvn exec:java -Dexec.mainClass="org.CreateQrCode.seraphin.fr.GenerateQrCode"
+```
 
-Le fichier `findyourcourt.sql` contient la **structure** (MCD, MLD convertis en tables) et les **données de test**.  
-À importer via PhpMyAdmin dans une base appelée par exemple `findyourcourt`.
+### Exemple dans `GenerateQrCode.java`
 
----
+```java
+String data = "https://www.linkedin.com/in/ivan-r%C3%A9my-simo-mendje-1a1aa1253/";
+String path = "/Users/serap/Desktop/mon_linkedIn.jpg";
+CreateQrCode.creationQrCode(data, path);
+```
 
-##  Lancer le projet en local
+## Auteurs
 
-1. Cloner le projet
-2. Placer le dossier dans htdocs/ (XAMPP, MAMP...), Créer une base de données 'findyourcourt' dans PhpMyAdmin et importer findyourcourt.sql
- 
----
-
-## Réalisé par
-- Groupe SummitPartners
-- Projet mené sur 4 mois dans le cadre de l'UE Développement Web – ISEP 2025
-
----
-
-## Contact
-angenolwen@gmail.com (pour toute suggestion d'amélioration)
-
----
+- **Ivan remy Simo Mendje**
+- Projet personnel pour automatiser la génération de codes QR à usage personnel ou professionnel.
 
 ## Licence
-Ce projet est libre sous licence MIT – Vous pouvez le réutiliser, modifier, l’adapter à vos besoins.
+
+Ce projet est sous licence **MIT** – libre d’utilisation, de modification et de distribution.
