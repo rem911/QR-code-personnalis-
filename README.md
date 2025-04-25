@@ -42,8 +42,7 @@ Avant de compiler ou exécuter ce projet, assurez-vous d’avoir :
 ## Structure des fichiers
 
 ```
-src/
-└── org.CreateQrCode.seraphin.fr/
+programme/
     ├── CreateQrCode.java      # Classe utilitaire de génération de QR code
     └── GenerateQrCode.java    # Classe principale (main)
 ```
@@ -64,7 +63,12 @@ mvn exec:java -Dexec.mainClass="org.CreateQrCode.seraphin.fr.GenerateQrCode"
 String data = "https://www.linkedin.com/in/ivan-r%C3%A9my-simo-mendje-1a1aa1253/";
 String path = "/Users/serap/Desktop/mon_linkedIn.jpg";
 CreateQrCode.creationQrCode(data, path);
+
 ```
+## Aperçu du site
+
+![Aperçu](Illustration_fyc.png)
+
 
 ## Auteurs
 
