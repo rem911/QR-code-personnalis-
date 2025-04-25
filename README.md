@@ -65,7 +65,7 @@ String path = "/Users/serap/Desktop/mon_linkedIn.jpg";
 CreateQrCode.creationQrCode(data, path);
 
 ```
-## Aperçu du site
+## Aperçu du QR-Code
 
 ![Aperçu](linkedIN.jpg)
 
