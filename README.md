@@ -67,7 +67,7 @@ CreateQrCode.creationQrCode(data, path);
 ```
 ## Aperçu du site
 
-![Aperçu](Illustration_fyc.png)
+![Aperçu](linkedIN.jpg)
 
 
 ## Auteurs
